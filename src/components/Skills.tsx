@@ -47,19 +47,19 @@ const Skills = () => {
                 return (
                   <Card 
                     key={index}
-                    className="p-6 bg-gradient-to-br from-card to-card/50 border-border/50 hover:border-primary/50 transition-all duration-300"
+                    className="p-6 glass-card border-border/50 hover:shadow-card-hover hover:scale-[1.02] transition-all duration-500 group"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="p-3 bg-primary/10 rounded-lg">
-                        <Icon className="h-6 w-6 text-primary" />
+                      <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                        <Icon className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-semibold text-lg mb-3">{category.category}</h4>
+                        <h4 className="font-semibold text-lg mb-3 group-hover:text-primary transition-colors">{category.category}</h4>
                         <div className="flex flex-wrap gap-2">
                           {category.skills.map((skill, i) => (
                             <span 
                               key={i}
-                              className="px-3 py-1 text-sm bg-secondary text-secondary-foreground rounded-md border border-border/50"
+                              className="px-3 py-1 text-sm bg-secondary text-secondary-foreground rounded-md border border-border/50 hover:bg-primary/20 hover:border-primary/40 transition-all cursor-default"
                             >
                               {skill}
                             </span>
@@ -82,10 +82,10 @@ const Skills = () => {
                 return (
                   <Card 
                     key={index}
-                    className="p-4 bg-gradient-to-br from-card to-card/50 border-border/50 hover:border-accent/50 transition-all duration-300 text-center group"
+                    className="p-4 glass-card border-border/50 hover:shadow-card-hover hover:scale-105 transition-all duration-500 text-center group cursor-pointer"
                   >
-                    <Icon className="h-8 w-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                    <p className="text-sm font-medium">{skill.name}</p>
+                    <Icon className="h-8 w-8 text-accent mx-auto mb-3 group-hover:scale-110 group-hover:text-primary transition-all" />
+                    <p className="text-sm font-medium group-hover:text-primary transition-colors">{skill.name}</p>
                   </Card>
                 );
               })}

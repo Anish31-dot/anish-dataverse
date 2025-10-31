@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, FolderGit2 } from "lucide-react";
+import { Github, FolderGit2 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const Projects = () => {
   const projects = [
@@ -53,7 +54,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 px-4 bg-background/50">
       <div className="container mx-auto max-w-6xl">
-        <div className="flex items-center gap-3 mb-12">
+        <div className="flex items-center gap-3 mb-12 justify-center">
           <FolderGit2 className="h-8 w-8 text-primary" />
           <h2 className="text-4xl font-bold">Featured Projects</h2>
         </div>
@@ -62,11 +63,11 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={index}
-              className="p-6 bg-gradient-to-br from-card to-card/50 border-border/50 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/5 group"
+              className="p-6 glass-card border-border/50 hover:shadow-card-hover hover:scale-[1.02] transition-all duration-500 group"
             >
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-xl font-bold text-primary group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-bold text-primary group-hover:scale-105 transition-transform origin-left">
                     {project.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">{project.subtitle}</p>
@@ -74,7 +75,7 @@ const Projects = () => {
 
                 <ul className="space-y-2">
                   {project.description.map((item, i) => (
-                    <li key={i} className="text-sm text-foreground/80 leading-relaxed flex gap-2">
+                    <li key={i} className="text-sm text-foreground/80 leading-relaxed flex gap-2 hover:text-foreground transition-colors">
                       <span className="text-accent mt-1">•</span>
                       <span>{item}</span>
                     </li>
@@ -83,23 +84,24 @@ const Projects = () => {
 
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, i) => (
-                    <span 
+                    <Badge 
                       key={i}
-                      className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20"
+                      variant="secondary"
+                      className="hover:bg-primary/20 hover:border-primary/40 transition-colors"
                     >
                       {tag}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
 
                 <Button 
                   variant="outline" 
-                  className="w-full gap-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                  className="w-full gap-2 glass-card hover:border-primary/40 group/btn"
                   asChild
                 >
                   <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    <Github className="h-4 w-4 group-hover/btn:rotate-12 transition-transform" />
                     View on GitHub
-                    <ExternalLink className="h-4 w-4" />
                   </a>
                 </Button>
               </div>
